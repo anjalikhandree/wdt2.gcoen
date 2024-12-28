@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoodies Store</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #d64ffc;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+        nav a {
+            float: left;
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        .product-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 30px;
+        }
+        .product {
+            background-color: white;
+            width: 280px;
+            margin: 15px;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .product img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .product .price {
+            font-size: 20px;
+            color: #28a745;
+            margin-top: 10px;
+        }
+        .product button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        .product button:hover {
+            background-color: #218838;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hoodies Store</h1>
+        <p>Your favorite hoodie collection, available for you!</p>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="cart.html">Cart</a>
+    </nav>
+    <div class="product-section">
+        <!-- Example Products -->
+        <div class="product">
+            <img src="https://tse2.mm.bing.net/th?id=OIP.UTx_heFe1gVOY3EsJNBtLAHaFN&pid=Api&P=0&h=180" alt="Red Hoodie">
+            <h3>Red Hoodie</h3>
+            <p>Stylish and warm hoodie for cold weather.</p>
+            <div class="price">$39.99</div>
+            <button onclick="addToCart('Red Hoodie', 39.99)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://tse3.mm.bing.net/th?id=OIP.R1duFY6dJV3LrRHPkc1nDgHaHa&pid=Api&P=0&h=180" alt="Black Hoodie">
+            <h3>Black Hoodie</h3>
+            <p>Classic black hoodie for everyday wear.</p>
+            <div class="price">$49.99</div>
+            <button onclick="addToCart('Black Hoodie', 49.99)">Add to Cart</button>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Hoodies Store. All rights reserved.</p>
+    </footer>
+    <script>
+        function addToCart(product, price) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ product, price });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(${product} added to cart!);
+        }
+    </script>
+</body>
+</html>
